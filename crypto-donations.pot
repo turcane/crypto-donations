@@ -1,0 +1,96 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Crypto Donations\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-04 07:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.2"
+
+#. Author of the plugin
+msgid "b1ue"
+msgstr ""
+
+#: crypto-donations.php:219
+msgid "Bitcoin"
+msgstr ""
+
+#: crypto-donations.php:165
+msgid "Bitcoin Address"
+msgstr ""
+
+#: crypto-donations.php:162
+msgid "Crypto Coin Addresses"
+msgstr ""
+
+#. Name of the plugin
+msgid "Crypto Donations"
+msgstr ""
+
+#: crypto-donations.php:134
+msgid "Crypto Donations - Settings"
+msgstr ""
+
+#: crypto-donations.php:215 crypto-donations.php:242 crypto-donations.php:265
+msgid "Donations"
+msgstr ""
+
+#: crypto-donations.php:246
+msgid "Ethereum"
+msgstr ""
+
+#: crypto-donations.php:169
+msgid "Ethereum Address"
+msgstr ""
+
+#: crypto-donations.php:155
+msgid "Etherscan API Key Token"
+msgstr ""
+
+#: crypto-donations.php:140
+msgid "Global Settings"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.b1ue.tech"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.b1ue.tech/crypto-donations/"
+msgstr ""
+
+#: crypto-donations.php:269
+msgid "Litecoin"
+msgstr ""
+
+#: crypto-donations.php:173
+msgid "Litecoin Address"
+msgstr ""
+
+#: crypto-donations.php:87
+msgid "Settings"
+msgstr ""
+
+#: crypto-donations.php:147
+msgid "Text Color"
+msgstr ""
+
+#. Description of the plugin
+msgid "This plugin allows to create Crypto Donations"
+msgstr ""
+
+#: crypto-donations.php:151
+msgid "Widget Brightness"
+msgstr ""
+
+#: crypto-donations.php:143
+msgid "Widget Color"
+msgstr ""

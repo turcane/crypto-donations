@@ -1,0 +1,35 @@
+.settings_box {
+        border: 2px solid #005bbc;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-topleft: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+}
+
+.settings_box h2 {
+        background: #005bbc;
+        color: white;
+        padding: 10px;
+}
+
+.settings_box table {
+        padding: 0px 12px 12px 12px;
+}
+
+.separator {
+        height: 12px;
+}
+
+input.address {
+        width: 400px;
+}
+
+input.key {
+        width: 400px;
+}
+
+th.label {
+        width: 200px;
+}

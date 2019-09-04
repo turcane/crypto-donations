@@ -1,0 +1,46 @@
+.crypto_donations_widget {
+        cursor: pointer;
+        background-image: linear-gradient(#005bbc, #106bcc, #005bbc);
+        border: 1px solid #fff;
+        padding: 4px 12px 4px 12px;
+        color: #fff;
+        position: relative;
+        display: inline;
+}
+
+.crypto_donations_icon {
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(-50%, -50%);
+        padding-left: 4px;
+}
+.crypto_donations_text {
+        padding-left: 16px;
+}
+.separator {
+        height: 12px;
+}
+.crypto_donations_bubble {
+        display: inline;
+        position: relative;
+	background: #fff;
+        border-radius: .4em;
+        padding: 4px 12px 4px 12px;
+        margin-left: 5px;
+        border: 1px solid #005bbc;
+        border-right-color: #005bbc;
+}
+.crypto_donations_bubble:after {
+        content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+        border-right-color: inherit;
+	border-left: 0;
+	margin-top: -5px;
+	margin-left: -5px;
+}
