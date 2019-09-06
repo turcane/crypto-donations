@@ -212,6 +212,7 @@ function createBitcoinWidget() {
                         data-toggle="popover" title="'.get_option('crypto_donations_settings_bitcoin').'" data-html="true" 
                         data-content="
                                 '.__('Donations', 'crypto-donations').': <span id=\'crypto_donations_info_bitcoin_amount\'></span><br>
+                                '.__('Explorer', 'crypto-donations').': <a href=\'#\' target=\'_BLANK\' id=\'crypto_donations_info_bitcoin_explorer\'>Blockstream</a><br>
                                 <div id=\'crypto_donations_info_bitcoin_qr\'></div>
                         " tabindex="0"
                 >
@@ -238,6 +239,7 @@ function createEthereumWidget() {
                         data-toggle="popover" title="'.get_option('crypto_donations_settings_ethereum').'" data-html="true" 
                         data-content="
                                 '.__('Donations', 'crypto-donations').': <span id=\'crypto_donations_info_ethereum_amount\'></span><br>
+                                '.__('Explorer', 'crypto-donations').': <a href=\'#\' target=\'_BLANK\' id=\'crypto_donations_info_ethereum_explorer\'>Etherscan</a><br>
                                 <div id=\'crypto_donations_info_ethereum_qr\'></div>
                         "
                 >
@@ -260,6 +262,7 @@ function createLitecoinWidget() {
                         data-toggle="popover" title="'.get_option('crypto_donations_settings_litecoin').'" data-html="true" 
                         data-content="
                                 '.__('Donations', 'crypto-donations').': <span id=\'crypto_donations_info_litecoin_amount\'></span><br>
+                                '.__('Explorer', 'crypto-donations').': <a href=\'#\' target=\'_BLANK\' id=\'crypto_donations_info_litecoin_explorer\'>Blockchair</a></span><br>
                                 <div id=\'crypto_donations_info_litecoin_qr\'></div>
                         "
                 >
