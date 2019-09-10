@@ -10,12 +10,12 @@
 
 // Setup
 
-add_action('init', 'setup_shortcodes');
-add_action('init', 'setup_default_settings');
-add_action('wp_enqueue_scripts', 'add_scripts_and_styles'); 
+add_action('init', 'crypto_donations_setup_shortcodes');
+add_action('init', 'crypto_donations_setup_default_settings');
+add_action('wp_enqueue_scripts', 'crypto_donations_add_scripts_and_styles'); 
 add_action('admin_enqueue_scripts', 'wptuts_add_color_picker');
 
-function add_scripts_and_styles () {
+function crypto_donations_add_scripts_and_styles () {
         wp_enqueue_script('jquery');
         wp_enqueue_script('crypto-donations-bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap-4.3.1.bundle.min.js');
         wp_enqueue_script('crypto-donations-qrcode', plugin_dir_url(__FILE__) . 'js/jquery-qrcode-0.17.0.min.js');
@@ -24,11 +24,11 @@ function add_scripts_and_styles () {
         wp_enqueue_style('crypto-donations-bootstrap', plugin_dir_url(__FILE__) . 'css/bootstrap-4.3.1.min.css');
 }
 
-function setup_shortcodes() {
-	add_shortcode('crypto-donations', 'resolve_shortcode');
+function crypto_donations_setup_shortcodes() {
+	add_shortcode('crypto-donations', 'crypto_donations_resolve_shortcode');
 }
 
-function setup_default_settings() {
+function crypto_donations_setup_default_settings() {
 	if (get_option('crypto_donations_settings_widget_color') == "" || get_option('crypto_donations_settings_widget_color') == null) {
                 update_option('crypto_donations_settings_widget_color', '#005bbc');
         }
@@ -41,7 +41,7 @@ function setup_default_settings() {
 }
 // Tools
 
-function adjustBrightness($hex, $steps) {
+function crypto_donations_adjust_brightness($hex, $steps) {
         // Steps should be between -255 and 255. Negative = darker, positive = lighter
         $steps = max(-255, min(255, $steps));
     
@@ -66,9 +66,9 @@ function adjustBrightness($hex, $steps) {
 
 // Admin
 add_action('admin_menu', 'crypto_donations_create_admin_menu');
-add_action('admin_init', 'add_settings');
+add_action('admin_init', 'crypto_donations_add_settings');
 
-function add_settings() {
+function crypto_donations_add_settings() {
         register_setting('crypto_donations_settings_group', 'crypto_donations_settings_widget_color', array('type' => 'string', 'default' => '#005bbc'));
         register_setting('crypto_donations_settings_group', 'crypto_donations_settings_text_color', array('type' => 'string', 'default' => '#ffffff'));
         register_setting('crypto_donations_settings_group', 'crypto_donations_settings_brightness', array('type' => 'int', 'default' => 0));
@@ -83,11 +83,11 @@ function add_settings() {
 }
 
 function crypto_donations_create_admin_menu() {
-	add_menu_page('Crypto Donations', 'Crypto Donations', 10, __FILE__, 'crypto_donations');
-	add_submenu_page(__FILE__, __('Settings', 'crypto-donations'), __('Settings', 'crypto-donations'), 10, 'settings', 'settings');
+	add_menu_page('Crypto Donations', 'Crypto Donations', 10, __FILE__, 'crypto_donations_page');
+	add_submenu_page(__FILE__, __('Settings', 'crypto-donations'), __('Settings', 'crypto-donations'), 10, 'crypto_donations_settings', 'crypto_donations_settings');
 }
 
-function crypto_donations() {
+function crypto_donations_page() {
         echo '<h1>Crypto Donations</h1>
         <h2>What does this plugin costs? No plugin is for free...</h2>
         <p>This plugin is for free. Every function and every upcoming feature is and will stay free.</p>
@@ -127,7 +127,7 @@ function crypto_donations() {
         ';
 }
 
-function settings() {
+function crypto_donations_settings() {
 ?>
 <!-- START Settings Form -->
 <div class="wrap">
@@ -186,21 +186,21 @@ function settings() {
 
 // Create Widget
 
-function resolve_shortcode($atts = [], $content = null, $tag = '') {
+function crypto_donations_resolve_shortcode($atts = [], $content = null, $tag = '') {
 	$atts = array_change_key_case((array)$atts, CASE_LOWER);
 	switch($atts["type"]) {
 		case "bitcoin":
-                        return createBitcoinWidget();
+                        return crypto_donations_create_bitcoin_widget();
                 case "ethereum":
-                        return createEthereumWidget();
+                        return crypto_donations_create_ethereum_widget();
                 case "litecoin":
-                        return createLitecoinWidget();
+                        return crypto_donations_create_litecoin_widget();
 		default:
 			return "";
 	}
 }
 
-function createBitcoinWidget() {
+function crypto_donations_create_bitcoin_widget() {
         if (get_option('crypto_donations_settings_bitcoin') == null || get_option('crypto_donations_settings_bitcoin') == "") {
                 return __("[Error] Crypto Donations: No Bitcoin Address was defined!");
         }
@@ -208,7 +208,7 @@ function createBitcoinWidget() {
                 <script type="text/javascript">
                         processBitcoinWidget(\''.get_option('crypto_donations_settings_bitcoin').'\');
                 </script>
-                <div class="crypto_donations_widget" style="background-image: linear-gradient('.get_option('crypto_donations_settings_widget_color').', '.adjustBrightness(get_option('crypto_donations_settings_widget_color'), get_option('crypto_donations_settings_brightness')).', '.get_option('crypto_donations_settings_widget_color').'); border: 1px solid '.get_option('crypto_donations_settings_text_color').'; color: '.get_option('crypto_donations_settings_text_color').';" onclick="processBitcoinWidget(\''.get_option('crypto_donations_settings_bitcoin').'\');"
+                <div class="crypto_donations_widget" style="background-image: linear-gradient('.get_option('crypto_donations_settings_widget_color').', '.crypto_donations_adjust_brightness(get_option('crypto_donations_settings_widget_color'), get_option('crypto_donations_settings_brightness')).', '.get_option('crypto_donations_settings_widget_color').'); border: 1px solid '.get_option('crypto_donations_settings_text_color').'; color: '.get_option('crypto_donations_settings_text_color').';" onclick="processBitcoinWidget(\''.get_option('crypto_donations_settings_bitcoin').'\');"
                         data-toggle="popover" title="'.get_option('crypto_donations_settings_bitcoin').'" data-html="true" 
                         data-content="
                                 '.__('Donations', 'crypto-donations').': <span id=\'crypto_donations_info_bitcoin_amount\'></span><br>
@@ -224,7 +224,7 @@ function createBitcoinWidget() {
 
 }
 
-function createEthereumWidget() {
+function crypto_donations_create_ethereum_widget() {
         if (get_option('crypto_donations_settings_ethereum') == null || get_option('crypto_donations_settings_ethereum') == "") {
                 return __("[Error] Crypto Donations: No Ethereum Address was defined!");
         }
@@ -235,7 +235,7 @@ function createEthereumWidget() {
                 <script type="text/javascript">
                         processEthereumWidget(\''.get_option('crypto_donations_settings_ethereum').'\');
                 </script>
-                <div class="crypto_donations_widget" style="background-image: linear-gradient('.get_option('crypto_donations_settings_widget_color').', '.adjustBrightness(get_option('crypto_donations_settings_widget_color'), get_option('crypto_donations_settings_brightness')).', '.get_option('crypto_donations_settings_widget_color').');  border: 1px solid '.get_option('crypto_donations_settings_text_color').'; color: '.get_option('crypto_donations_settings_text_color').';" onclick="processEthereumWidget(\''.get_option('crypto_donations_settings_ethereum').'\');"
+                <div class="crypto_donations_widget" style="background-image: linear-gradient('.get_option('crypto_donations_settings_widget_color').', '.crypto_donations_adjust_brightness(get_option('crypto_donations_settings_widget_color'), get_option('crypto_donations_settings_brightness')).', '.get_option('crypto_donations_settings_widget_color').');  border: 1px solid '.get_option('crypto_donations_settings_text_color').'; color: '.get_option('crypto_donations_settings_text_color').';" onclick="processEthereumWidget(\''.get_option('crypto_donations_settings_ethereum').'\');"
                         data-toggle="popover" title="'.get_option('crypto_donations_settings_ethereum').'" data-html="true" 
                         data-content="
                                 '.__('Donations', 'crypto-donations').': <span id=\'crypto_donations_info_ethereum_amount\'></span><br>
@@ -250,7 +250,7 @@ function createEthereumWidget() {
         ';
 }
 
-function createLitecoinWidget() {
+function crypto_donations_create_litecoin_widget() {
         if (get_option('crypto_donations_settings_litecoin') == null || get_option('crypto_donations_settings_litecoin') == "") {
                 return __("[Error] Crypto Donations: No Litecoin Address was defined!");
         }
@@ -258,7 +258,7 @@ function createLitecoinWidget() {
                 <script type="text/javascript">
                         processLitecoinWidget(\''.get_option('crypto_donations_settings_litecoin').'\');
                 </script>
-                <div class="crypto_donations_widget" style="background-image: linear-gradient('.get_option('crypto_donations_settings_widget_color').', '.adjustBrightness(get_option('crypto_donations_settings_widget_color'), get_option('crypto_donations_settings_brightness')).', '.get_option('crypto_donations_settings_widget_color').');  border: 1px solid '.get_option('crypto_donations_settings_text_color').'; color: '.get_option('crypto_donations_settings_text_color').';" onclick="processLitecoinWidget(\''.get_option('crypto_donations_settings_litecoin').'\');"
+                <div class="crypto_donations_widget" style="background-image: linear-gradient('.get_option('crypto_donations_settings_widget_color').', '.crypto_donations_adjust_brightness(get_option('crypto_donations_settings_widget_color'), get_option('crypto_donations_settings_brightness')).', '.get_option('crypto_donations_settings_widget_color').');  border: 1px solid '.get_option('crypto_donations_settings_text_color').'; color: '.get_option('crypto_donations_settings_text_color').';" onclick="processLitecoinWidget(\''.get_option('crypto_donations_settings_litecoin').'\');"
                         data-toggle="popover" title="'.get_option('crypto_donations_settings_litecoin').'" data-html="true" 
                         data-content="
                                 '.__('Donations', 'crypto-donations').': <span id=\'crypto_donations_info_litecoin_amount\'></span><br>
