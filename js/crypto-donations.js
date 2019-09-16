@@ -1,7 +1,5 @@
 jQuery(document).ready(function(){
-        jQuery('[data-toggle="popover"]').popover({
-                trigger: 'focus'
-        });   
+        jQuery('[data-toggle="popover"]').popover();   
 });
 
 function processBitcoinWidget(address) {
