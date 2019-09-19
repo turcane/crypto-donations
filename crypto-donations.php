@@ -78,8 +78,8 @@ function crypto_donations_add_settings() {
         register_setting('crypto_donations_settings_group', 'crypto_donations_settings_etherscan_api', array('type' => 'string'));
         wp_enqueue_style('wp-color-picker');
         wp_enqueue_script('wp-color-picker');
-        wp_enqueue_style('admin-styles', plugin_dir_url(__FILE__) . 'css/admin.css');
-        wp_enqueue_script('crypto-donations-admin', plugin_dir_url(__FILE__) . 'js/admin.js');
+        wp_enqueue_style('admin-styles', plugin_dir_url(__FILE__) . 'css/crypto-donations_admin.css');
+        wp_enqueue_script('crypto-donations-admin', plugin_dir_url(__FILE__) . 'js/crypto-donations_admin.js');
 }
 
 function crypto_donations_create_admin_menu() {
