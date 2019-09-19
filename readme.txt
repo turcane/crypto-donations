@@ -7,24 +7,47 @@ Tested up to: 5.2.3
 Requires PHP: 7.3
 Stable tag: trunk
 License: GNU General Public License v3.0
-License URI: https://github.com/JediWed/crypto-donations/blob/master/LICENSE
+License URI: ttps://github.com/JediWed/crypto-donations/blob/master/LICENSE
 
-A small widget to receive donations with crypto currencies. Include them wherever you want.
+A small graphical widget to receive donations with crypto currencies. Include them wherever you want.
 
 == Description ==
-Crypto Donations is a WordPress Plugin which allows you to receive Donations with Crypto Currencies like Bitcoin, Litecoin or Ethereum.
+Crypto Donations is a WordPress Plugin which allows you to receive Donations with Crypto Currencies like Bitcoin, Litecoin or Ethereum. It updates also automatically the amount of received donations.
 
-Just use the shortcode to embed your donations button like: [crypto-donations type=\"bitcoin\"]
+Just use the shortcode to embed your donations button like: [crypto-donations type=\\\"bitcoin\\\"]
 Following types are available:
 - bitcoin
 - ethereum
 - litecoin
 
-What\'s next?
-Currently Lightning is under development. Later other currencies like Bitcoin Cash are going to be added.
+**What\\\'s next?**
+Lightning is currently under development. Other currencies like Bitcoin Cash are going to be added later.
 
 == Installation ==
-- Upload this plugin on your WordPress installation
-- Install and activate it
-- In your admin Interface there is a new section for Crypto Donations
-- Configure your donation addresses, colors and other needed configurations
+1. Upload this plugin to the \"/wp-content/plugins/\" directory or install the plugin on your administration interface of WordPress directly through plugins marketplace.
+2. Activate the plugin through the \"Plugins\" menu in WordPress.
+
+== Frequently Asked Questions ==
+= Which Crypto Currencies are supported currently? =
+Bitcoin, Litecoin and Ethereum. We\'re working on Lightning and Bitcoin Cash.
+
+= How does the shortcode looks like to embed a donation widget? =
+    [crypto-donations type=\"coin\"]
+
+Coin can be:
+- bitcoin
+- ethereum
+- litecoin
+
+== Screenshots ==
+1. Bitcoin Donation Widget
+2. Ethereum Donation Widget
+3. Litecoin Donation Widget
+
+== Changelog ==
+= 1.0.0 =
+* Initial release with support for bitcoin, litecoin and ethereum
+
+== Upgrade Notice ==
+= 1.0.0 =
+Initial release
