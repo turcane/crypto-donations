@@ -23,6 +23,9 @@ Following types are available:
 **What\\\'s next?**
 Lightning is currently under development. Other currencies like Bitcoin Cash are going to be added later.
 
+**Issues? Feature Requests?**
+Feel free to submit your wishes or any issues on [Github](hhttps://github.com/JediWed/crypto-donations)
+
 == Installation ==
 1. Upload this plugin to the \"/wp-content/plugins/\" directory or install the plugin on your administration interface of WordPress directly through plugins marketplace.
 2. Activate the plugin through the \"Plugins\" menu in WordPress.
@@ -41,7 +44,7 @@ Coin can be:
 
 == Screenshots ==
 1. Bitcoin Donation Widget
-2. Ethereum Donation Widget
+2. Bitcoin Donation Widget with QR Code
 3. Litecoin Donation Widget
 
 == Changelog ==
