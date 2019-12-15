@@ -16,8 +16,8 @@ function processBitcoinWidget(address) {
 function processEthereumWidget(address, apiKey) {
         jQuery.getJSON('https://api.etherscan.io/api?module=account&action=balance&address=' + address + '&tag=latest&apikey=' + apiKey, function (data) {
                 $ethereum_amount = data['result'];
-                jQuery('#crypto_donations_info_ethereum_bubble').text(($ethereum_amount / 100000000000000000).toLocaleString());
-                jQuery('#crypto_donations_info_ethereum_amount').text(($ethereum_amount / 100000000000000000).toLocaleString() + ' ETH');
+                jQuery('#crypto_donations_info_ethereum_bubble').text(($ethereum_amount / 1000000000000000000).toLocaleString());
+                jQuery('#crypto_donations_info_ethereum_amount').text(($ethereum_amount / 1000000000000000000).toLocaleString() + ' ETH');
                 jQuery('#crypto_donations_info_ethereum_explorer').attr('href', 'https://etherscan.io/address/' + address);
                 jQuery('#crypto_donations_info_ethereum_qr').empty()
                 jQuery('#crypto_donations_info_ethereum_qr').qrcode({render: 'div', ecLevel: 'M', size: 240, text: address});

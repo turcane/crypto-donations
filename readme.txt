@@ -48,9 +48,12 @@ Coin can be:
 3. Litecoin Donation Widget
 
 == Changelog ==
+= 1.0.1 =
+* Decimal Fix for Ethereum
 = 1.0.0 =
 * Initial release with support for bitcoin, litecoin and ethereum
 
 == Upgrade Notice ==
+If applicable
 = 1.0.0 =
-Initial release
+* Initial release
