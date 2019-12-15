@@ -3,7 +3,7 @@
  * Plugin Name: Crypto Donations
  * Plugin URI: https://www.b1ue.tech/crypto-donations/
  * Description: This plugin allows to create Crypto Donations
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: b1ue
  * Author URI: https://www.b1ue.tech
  */
